@@ -37,7 +37,7 @@ services:
       - user-service
     environment:
       - SPRING_APPLICATION_NAME=client-service
-      - SERVER_PORT=8081
+      - SERVER_PORT=8088
       - GRPC_CLIENT_USER_SERVICE_ADDRESS=discovery:///user-service
       - GRPC_CLIENT_USER_SERVICE_NEGOTIATIONTYPE=PLAINTEXT
       - SPRING_CLOUD_CONSUL_HOST=consul
