@@ -22,6 +22,8 @@ services:
       - SERVER_PORT=8080
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_DISCOVERY_PORT=9090
+      - SPRING_CLOUD_CONSUL_DISCOVERY_REGISTER_HEALTH_CHECK=false
+      - SPRING_CLOUD_CONSUL_DISCOVERY_PREFER_IP_ADDRESS=true
     ports:
       - "8080:8080"
       - "9090:9090"
@@ -36,8 +38,9 @@ services:
     environment:
       - SPRING_APPLICATION_NAME=client-service
       - SERVER_PORT=8081
-      - GRPC_CLIENT_USER_SERVICE_ADDRESS=discovery://user-service
+      - GRPC_CLIENT_USER_SERVICE_ADDRESS=discovery:///user-service
       - GRPC_CLIENT_USER_SERVICE_NEGOTIATIONTYPE=PLAINTEXT
       - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_DISCOVERY_PREFER_IP_ADDRESS=true
     ports:
       - "8088:8088"
